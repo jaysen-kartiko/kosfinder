@@ -17,7 +17,7 @@ import 'profile_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  const config = AppConfig.fromEnvironment();
+  final config = await AppConfig.load();
 
   if (!config.isValid) {
     runApp(KosFinderConfigErrorApp(message: config.validationMessage));
